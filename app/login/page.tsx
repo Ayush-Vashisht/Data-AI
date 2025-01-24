@@ -13,30 +13,47 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { useUser } from "@/context/user-context";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const { toast } = useToast();
+  const { setUser } = useUser();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    });
-
-    if (response.ok) {
-      router.push("/dashboard");
-    } else {
-      const data = await response.json();
-      alert(data.message || "Something went wrong");
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      if (response.ok) {
+        const userData = await response.json();
+        setUser(userData.user);
+        router.push("/dashboard");
+      } else {
+        const data = await response.json();
+        toast({
+          variant: "destructive",
+          title: "Login Failed",
+          description: data.message || "Something went wrong",
+        });
+      }
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to connect to server",
+      });
     }
   };
 
   return (
-    <div className="flex items-center justify-between h-screen w-full">
+    <div className="flex-1 flex items-center justify-between w-full">
       <Card className="max-w-md mx-auto mt-10">
         <CardHeader>
           <CardTitle className="text-2xl text-center font-bold text-purple-600 dark:text-purple-400">
