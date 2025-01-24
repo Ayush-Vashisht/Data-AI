@@ -14,12 +14,14 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useUser } from "@/context/user-context";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
   const { toast } = useToast();
+  const { setUser } = useUser();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,6 +32,8 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
       if (response.ok) {
+        const userData = await response.json();
+        setUser(userData.user);
         router.push("/dashboard");
       } else {
         const data = await response.json();
