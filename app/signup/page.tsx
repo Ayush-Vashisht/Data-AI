@@ -22,7 +22,7 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { fetchUser } = useUser();
+  const { fetchUser, user } = useUser();
   const { toast } = useToast();
 
   const handleSignUp = async (e: React.FormEvent) => {
@@ -30,25 +30,41 @@ export default function SignUp() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/auth/signup", {
+      // First, create the user account
+      const signupResponse = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, name }),
       });
 
-      const data = await response.json();
+      const signupData = await signupResponse.json();
 
-      if (response.ok) {
-        // Instead of making a login request, use fetchUser from context
-        await fetchUser();
-        setTimeout(() => {
+      if (signupResponse.ok) {
+        // If signup successful, proceed with login
+        const loginResponse = await fetch("/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const loginData = await loginResponse.json();
+
+        if (loginResponse.ok) {
+          // Now that we're logged in, fetch the user data
+          await fetchUser();
           router.push("/dashboard");
-        }, 100);
+        } else {
+          toast({
+            variant: "destructive",
+            title: "Login Failed",
+            description: loginData.message || "Something went wrong",
+          });
+        }
       } else {
         toast({
           variant: "destructive",
           title: "Signup Failed",
-          description: data.message || "Something went wrong",
+          description: signupData.message || "Something went wrong",
         });
       }
     } catch (error) {
