@@ -52,7 +52,9 @@ export default function SignUp() {
         if (loginResponse.ok) {
           // Now that we're logged in, fetch the user data
           await fetchUser();
-          router.push("/dashboard");
+          setTimeout(() => {
+            router.push("/dashboard");
+          }, 150);
         } else {
           toast({
             variant: "destructive",
