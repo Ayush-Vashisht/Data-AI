@@ -39,6 +39,7 @@ export default function Login() {
 
       if (response.ok) {
         await fetchUser();
+        router.refresh();
         setTimeout(() => {
           router.push("/dashboard");
         }, 150);

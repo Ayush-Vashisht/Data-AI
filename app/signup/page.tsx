@@ -52,6 +52,7 @@ export default function SignUp() {
         if (loginResponse.ok) {
           // Now that we're logged in, fetch the user data
           await fetchUser();
+          router.refresh();
           setTimeout(() => {
             router.push("/dashboard");
           }, 150);
