@@ -22,7 +22,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
-  const { fetchUser } = useUser();
+  const { fetchUser, user } = useUser();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,9 +39,7 @@ export default function Login() {
 
       if (response.ok) {
         await fetchUser();
-        setTimeout(() => {
-          router.push("/dashboard");
-        }, 100);
+        router.push("/dashboard");
       } else {
         toast({
           variant: "destructive",
