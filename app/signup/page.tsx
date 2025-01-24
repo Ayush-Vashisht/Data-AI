@@ -20,46 +20,45 @@ export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const { setUser } = useUser();
+  const { fetchUser } = useUser();
   const { toast } = useToast();
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await fetch("/api/auth/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password, name }),
-    });
+    setIsLoading(true);
 
-    const data = await response.json();
-
-    if (response.ok) {
-      // Log the user in after successful signup
-      const loginResponse = await fetch("/api/auth/login", {
+    try {
+      const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, name }),
       });
 
-      const loginData = await loginResponse.json();
+      const data = await response.json();
 
-      if (loginResponse.ok) {
-        setUser(loginData.user);
-        router.push("/dashboard");
+      if (response.ok) {
+        // Instead of making a login request, use fetchUser from context
+        await fetchUser();
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 100);
       } else {
         toast({
           variant: "destructive",
-          title: "Error",
-          description: loginData.message || "Failed to log in after signup",
+          title: "Signup Failed",
+          description: data.message || "Something went wrong",
         });
       }
-    } else {
+    } catch (error) {
       toast({
         variant: "destructive",
-        title: "Signup Failed",
-        description: data.message || "Something went wrong",
+        title: "Error",
+        description: "An unexpected error occurred",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -111,8 +110,8 @@ export default function SignUp() {
                 />
               </div>
             </div>
-            <Button className="w-full mt-6" type="submit">
-              Sign Up
+            <Button className="w-full mt-6" type="submit" disabled={isLoading}>
+              {isLoading ? "Signing up..." : "Sign Up"}
             </Button>
           </form>
         </CardContent>

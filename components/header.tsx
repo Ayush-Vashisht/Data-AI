@@ -40,9 +40,11 @@ export function Header() {
             <>
               {user ? (
                 <>
-                  <Button variant="ghost" asChild>
-                    <Link href="/dashboard">Dashboard</Link>
-                  </Button>
+                  {pathname !== "/dashboard" && (
+                    <Button variant="ghost" asChild>
+                      <Link href="/dashboard">Dashboard</Link>
+                    </Button>
+                  )}
 
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
