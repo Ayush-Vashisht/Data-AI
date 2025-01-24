@@ -31,16 +31,19 @@ export default function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
+
+      const userData = await response.json();
+
       if (response.ok) {
-        const userData = await response.json();
         setUser(userData.user);
-        router.push("/dashboard");
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 100);
       } else {
-        const data = await response.json();
         toast({
           variant: "destructive",
           title: "Login Failed",
-          description: data.message || "Something went wrong",
+          description: userData.message || "Something went wrong",
         });
       }
     } catch (error) {

@@ -13,12 +13,16 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
+import { useUser } from "@/context/user-context";
+import { useToast } from "@/hooks/use-toast";
 
 export default function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const router = useRouter();
+  const { setUser } = useUser();
+  const { toast } = useToast();
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,11 +32,34 @@ export default function SignUp() {
       body: JSON.stringify({ email, password, name }),
     });
 
+    const data = await response.json();
+
     if (response.ok) {
-      router.push("/login");
+      // Log the user in after successful signup
+      const loginResponse = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const loginData = await loginResponse.json();
+
+      if (loginResponse.ok) {
+        setUser(loginData.user);
+        router.push("/dashboard");
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: loginData.message || "Failed to log in after signup",
+        });
+      }
     } else {
-      const data = await response.json();
-      alert(data.message || "Something went wrong");
+      toast({
+        variant: "destructive",
+        title: "Signup Failed",
+        description: data.message || "Something went wrong",
+      });
     }
   };
 
