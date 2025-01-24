@@ -14,6 +14,7 @@ interface UserContextType {
   user: User | null;
   setUser: (user: User | null) => void;
   loading: boolean;
+  fetchUser: () => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -22,26 +23,27 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetch("/api/user");
-        if (response.ok) {
-          const userData = await response.json();
-          setUser(userData);
-        }
-      } catch (error) {
-        console.error("Failed to fetch user:", error);
-      } finally {
-        setLoading(false);
+  const fetchUser = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("/api/user");
+      if (response.ok) {
+        const userData = await response.json();
+        setUser(userData);
       }
-    };
+    } catch (error) {
+      console.error("Failed to fetch user:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchUser();
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, loading }}>
+    <UserContext.Provider value={{ user, setUser, loading, fetchUser }}>
       {children}
     </UserContext.Provider>
   );

@@ -19,12 +19,15 @@ import { useUser } from "@/context/user-context";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
-  const { setUser } = useUser();
+  const { fetchUser } = useUser();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
@@ -32,10 +35,10 @@ export default function Login() {
         body: JSON.stringify({ email, password }),
       });
 
-      const userData = await response.json();
+      const data = await response.json();
 
       if (response.ok) {
-        setUser(userData.user);
+        await fetchUser();
         setTimeout(() => {
           router.push("/dashboard");
         }, 100);
@@ -43,7 +46,7 @@ export default function Login() {
         toast({
           variant: "destructive",
           title: "Login Failed",
-          description: userData.message || "Something went wrong",
+          description: data.message || "Something went wrong",
         });
       }
     } catch (error) {
@@ -52,6 +55,8 @@ export default function Login() {
         title: "Error",
         description: "Failed to connect to server",
       });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -92,8 +97,8 @@ export default function Login() {
                 />
               </div>
             </div>
-            <Button className="w-full mt-6" type="submit">
-              Login
+            <Button className="w-full mt-6" type="submit" disabled={isLoading}>
+              {isLoading ? "Logging in..." : "Login"}
             </Button>
           </form>
         </CardContent>
