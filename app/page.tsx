@@ -19,7 +19,7 @@ export default function LandingPage() {
               </p>
               <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
                 <Link
-                  href="#"
+                  href="/dashboard"
                   className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-medium text-purple-600 transition hover:bg-white/90"
                 >
                   Start Contributing

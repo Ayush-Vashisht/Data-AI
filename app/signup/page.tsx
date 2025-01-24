@@ -37,8 +37,8 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex items-center justify-between h-screen w-full">
-      <Card className="max-w-md mx-auto mt-10">
+    <div className="flex-1 flex items-center justify-between w-full">
+      <Card className="max-w-md sm:min-w-[400px] mx-auto mt-10">
         <CardHeader>
           <CardTitle className="text-2xl text-center font-bold text-purple-600 dark:text-purple-400">
             Sign Up
@@ -50,7 +50,7 @@ export default function SignUp() {
         <CardContent>
           <form onSubmit={handleSignUp}>
             <div className="space-y-4">
-            <div className="space-y-2">
+              <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input
                   id="name"
