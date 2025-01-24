@@ -39,7 +39,9 @@ export default function Login() {
 
       if (response.ok) {
         await fetchUser();
-        router.push("/dashboard");
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 150);
       } else {
         toast({
           variant: "destructive",
