@@ -16,8 +16,10 @@ export default function RootLayout({
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <UserProvider>
           <NavBar />
-          <Toaster />
-          {children}
+          <main className="pt-16 bg-gray-900 flex flex-col min-h-screen">
+            <Toaster />
+            {children}
+          </main>
         </UserProvider>
       </body>
     </html>
