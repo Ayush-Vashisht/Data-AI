@@ -1,4 +1,5 @@
 import { Footer } from "@/components/footer";
+import HeroSection from "@/components/landing-page/HeroSection";
 import { Database, Trophy, Globe } from "lucide-react";
 import Link from "next/link";
 
@@ -6,34 +7,7 @@ export default function LandingPage() {
   return (
     <>
       <main className="min-h-screen w-full">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-purple-600 to-purple-700 px-4 py-24 text-white">
-          <div className="container mx-auto max-w-6xl">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="mb-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-                Shape the Future of AI Through Data Creation
-              </h1>
-              <p className="mb-8 text-lg text-white/90 sm:text-xl">
-                Join our global community of contributors and help train the
-                next generation of intelligent systems.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-                <Link
-                  href="/dashboard"
-                  className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-medium text-purple-600 transition hover:bg-white/90"
-                >
-                  Start Contributing
-                </Link>
-                <Link
-                  href="#"
-                  className="inline-flex items-center justify-center rounded-lg border border-white px-6 py-3 font-medium text-white transition hover:bg-white/10"
-                >
-                  Learn More
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        <HeroSection />
 
         {/* How It Works Section */}
         <section className="px-4 py-24">
