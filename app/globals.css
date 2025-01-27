@@ -47,6 +47,16 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --theme-primary: 271 81% 28%; /* purple-900 */
+    --theme-primary-hover: 271 81% 23%; /* purple-950 */
+    --theme-primary-light: 271 81% 56%; /* purple-600 */
+    --theme-primary-dark: 271 81% 18%; /* darker than purple-950 */
+    --theme-accent: 271 81% 28%; /* purple-900 */
+    --theme-accent-hover: 271 81% 23%; /* purple-950 */
+    --theme-gradient-from: 271 81% 28%; /* purple-900 */
+    --theme-gradient-to: 271 81% 23%; /* purple-950 */
+    --text-primary: 271 91% 65%; /* purple-400 */
+    --text-primary-dark: 271 81% 56%; /* purple-600 */
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -81,6 +91,16 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --theme-primary: 271 81% 28%; /* purple-900 */
+    --theme-primary-hover: 271 81% 23%; /* purple-950 */
+    --theme-primary-light: 271 81% 56%; /* purple-600 */
+    --theme-primary-dark: 271 81% 18%; /* darker than purple-950 */
+    --theme-accent: 271 81% 28%; /* purple-900 */
+    --theme-accent-hover: 271 81% 23%; /* purple-950 */
+    --theme-gradient-from: 271 81% 28%; /* purple-900 */
+    --theme-gradient-to: 271 81% 23%; /* purple-950 */
+    --text-primary: 271 91% 65%; /* purple-400 */
+    --text-primary-dark: 271 81% 56%; /* purple-600 */
   }
 }
 

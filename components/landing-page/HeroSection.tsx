@@ -9,10 +9,10 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-black text-white ">
+    <div className="min-h-screen bg-black text-white">
       <main className="relative py-16 md:py-32">
         {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 to-black pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-theme-primary/40 to-black pointer-events-none" />
 
         <div className="container relative z-10 mx-auto px-4">
           <div className="mx-auto mb-16 max-w-4xl text-left items-start sm:text-center flex flex-col sm:items-center gap-4">
