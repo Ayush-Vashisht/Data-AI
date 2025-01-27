@@ -1,6 +1,6 @@
 import { Footer } from "@/components/footer";
 import HeroSection from "@/components/landing-page/HeroSection";
-import { Database, Trophy, Globe } from "lucide-react";
+import { HowItWorks } from "@/components/landing-page/HowItWorks";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -8,32 +8,7 @@ export default function LandingPage() {
     <>
       <main className="min-h-screen w-full">
         <HeroSection />
-
-        {/* How It Works Section */}
-        <section className="px-4 py-24">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="mb-12 text-center text-3xl font-bold sm:text-4xl">
-              How It Works
-            </h2>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              <FeatureCard
-                icon={<Database className="h-8 w-8 text-purple-600" />}
-                title="Contribute Data"
-                description="Create and submit high-quality data for AI training across various domains."
-              />
-              <FeatureCard
-                icon={<Trophy className="h-8 w-8 text-purple-600" />}
-                title="Earn Rewards"
-                description="Get compensated for your valuable contributions to AI advancement."
-              />
-              <FeatureCard
-                icon={<Globe className="h-8 w-8 text-purple-600" />}
-                title="Global Impact"
-                description="Help shape the future of AI by contributing your unique perspective."
-              />
-            </div>
-          </div>
-        </section>
+        <HowItWorks />
 
         {/* Data Domains Section */}
         <section className="bg-gray-50 px-4 py-24">

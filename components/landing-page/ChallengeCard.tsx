@@ -12,7 +12,7 @@ export function ChallengeCard({
   organizer,
 }: ChallengeCardProps) {
   return (
-    <div className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-theme-primary to-gray-900 p-6 transition-all hover:scale-105">
+    <div className="group relative overflow-hidden rounded-xl border border-purple-500/30 hover:border-purple-500/50 bg-gradient-to-br from-theme-primary to-theme-primary/50 p-6 transition-all hover:scale-105">
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
       <div className="relative z-10 h-full flex flex-col justify-between">
         <div className="mb-4">
