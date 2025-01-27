@@ -9,7 +9,7 @@ export default function Home() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="bg-black text-white">
       <main className="relative py-16 md:py-20 md:pt-32">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-theme-primary/40 to-black pointer-events-none" />
@@ -48,27 +48,6 @@ export default function Home() {
           </div>
 
           <StatsSection />
-
-          {/* <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            <ChallengeCard
-              title="AI Detection Challenge"
-              prize="$50,000 + GPU Credits"
-              image="/placeholder.svg"
-              organizer="DataAI Platform"
-            />
-            <ChallengeCard
-              title="Neural Processing Competition"
-              prize="$35,000 + Cloud Credits"
-              image="/placeholder.svg"
-              organizer="Research Lab"
-            />
-            <ChallengeCard
-              title="Computer Vision Benchmark"
-              prize="$25,000 + Hardware"
-              image="/placeholder.svg"
-              organizer="Tech Foundation"
-            />
-          </div> */}
         </div>
       </main>
     </div>

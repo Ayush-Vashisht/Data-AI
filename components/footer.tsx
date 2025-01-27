@@ -1,84 +1,137 @@
-import Link from "next/link"
-import { Brain } from "lucide-react"
+import Link from "next/link";
+import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+
+const footerLinks = {
+  product: [
+    { name: "Features", href: "#" },
+    { name: "Challenges", href: "#" },
+    { name: "Research", href: "#" },
+    { name: "Pricing", href: "#" },
+  ],
+  resources: [
+    { name: "Documentation", href: "#" },
+    { name: "API Reference", href: "#" },
+    { name: "Guides", href: "#" },
+    { name: "Examples", href: "#" },
+  ],
+  company: [
+    { name: "About", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Careers", href: "#" },
+    { name: "Contact", href: "#" },
+  ],
+  legal: [
+    { name: "Privacy", href: "#" },
+    { name: "Terms", href: "#" },
+    { name: "License", href: "#" },
+  ],
+};
+
+const socialLinks = [
+  { name: "GitHub", icon: Github, href: "#" },
+  { name: "Twitter", icon: Twitter, href: "#" },
+  { name: "LinkedIn", icon: Linkedin, href: "#" },
+  { name: "Email", icon: Mail, href: "#" },
+];
 
 export function Footer() {
   return (
-    <footer className="border-t bg-white">
-      <div className="container mx-auto max-w-6xl px-4 py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center space-x-2">
-              <Brain className="h-6 w-6 text-purple-600" />
-              <span className="text-xl font-bold">DataAI</span>
+    <footer className="border-t border-purple-500/20 bg-black">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
+          <div className="col-span-2 md:col-span-1">
+            <Link
+              href="/"
+              className="text-2xl font-bold text-white mb-4 inline-block"
+            >
+              DataAI<span className="text-purple-500">Platform</span>
             </Link>
-            <p className="text-sm text-gray-600">Shaping the future of AI through collaborative data creation.</p>
+            <p className="text-sm text-gray-400 mb-4">
+              Empowering the future of AI through collaborative data creation
+              and innovation.
+            </p>
+            <div className="flex space-x-4">
+              {socialLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
+                    aria-label={link.name}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold">Product</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  How it Works
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  Pricing
-                </Link>
-              </li>
+            <h3 className="text-sm font-semibold text-white mb-3">Product</h3>
+            <ul className="space-y-2">
+              {footerLinks.product.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold">Company</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  Careers
-                </Link>
-              </li>
+            <h3 className="text-sm font-semibold text-white mb-3">Resources</h3>
+            <ul className="space-y-2">
+              {footerLinks.resources.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
-            <h3 className="mb-4 text-sm font-semibold">Legal</h3>
-            <ul className="space-y-3 text-sm text-gray-600">
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  Terms of Service
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-purple-600">
-                  Cookie Policy
-                </Link>
-              </li>
+            <h3 className="text-sm font-semibold text-white mb-3">Company</h3>
+            <ul className="space-y-2">
+              {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-        <div className="mt-8 border-t pt-8 text-center text-sm text-gray-600">
-          <p>© {new Date().getFullYear()} DataAI. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t border-purple-500/20">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-gray-400">
+              © {new Date().getFullYear()} DataAI Platform. All rights reserved.
+            </p>
+            <ul className="flex flex-wrap justify-center gap-8">
+              {footerLinks.legal.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-purple-400 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-

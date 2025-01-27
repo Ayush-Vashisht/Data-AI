@@ -2,7 +2,6 @@ import { Footer } from "@/components/footer";
 import HeroSection from "@/components/landing-page/HeroSection";
 import { HowItWorks } from "@/components/landing-page/HowItWorks";
 import { Community } from "@/components/landing-page/Community";
-import Link from "next/link";
 
 export default function LandingPage() {
   return (
@@ -11,38 +10,6 @@ export default function LandingPage() {
         <HeroSection />
         <HowItWorks />
         <Community />
-
-        {/* Data Domains Section */}
-        <section className="bg-gray-50 px-4 py-24">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="mb-12 text-center text-3xl font-bold sm:text-4xl">
-              Data Domains
-            </h2>
-            <div className="mx-auto max-w-2xl space-y-4">
-              <DomainCard title="Image & Vision" />
-              <DomainCard title="Natural Language" />
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-gradient-to-br from-purple-600 to-purple-700 px-4 py-24 text-white">
-          <div className="container mx-auto max-w-6xl text-center">
-            <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-              Ready to Contribute?
-            </h2>
-            <p className="mb-8 text-lg text-white/90">
-              Join our community of data creators and help shape the future of
-              AI while earning rewards.
-            </p>
-            <Link
-              href="#"
-              className="inline-flex items-center justify-center rounded-lg bg-white px-6 py-3 font-medium text-purple-600 transition hover:bg-white/90"
-            >
-              Get Started Now
-            </Link>
-          </div>
-        </section>
       </main>
       <Footer />
     </>
