@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <main className="relative py-16 md:py-32">
+      <main className="relative py-16 md:py-20 md:pt-32">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-theme-primary/40 to-black pointer-events-none" />
 
@@ -49,7 +49,7 @@ export default function Home() {
 
           <StatsSection />
 
-          <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <ChallengeCard
               title="AI Detection Challenge"
               prize="$50,000 + GPU Credits"
@@ -68,7 +68,7 @@ export default function Home() {
               image="/placeholder.svg"
               organizer="Tech Foundation"
             />
-          </div>
+          </div> */}
         </div>
       </main>
     </div>

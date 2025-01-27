@@ -1,6 +1,7 @@
 import { Footer } from "@/components/footer";
 import HeroSection from "@/components/landing-page/HeroSection";
 import { HowItWorks } from "@/components/landing-page/HowItWorks";
+import { Community } from "@/components/landing-page/Community";
 import Link from "next/link";
 
 export default function LandingPage() {
@@ -9,6 +10,7 @@ export default function LandingPage() {
       <main className="min-h-screen w-full">
         <HeroSection />
         <HowItWorks />
+        <Community />
 
         {/* Data Domains Section */}
         <section className="bg-gray-50 px-4 py-24">

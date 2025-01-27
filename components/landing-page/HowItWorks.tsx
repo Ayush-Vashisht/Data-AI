@@ -20,7 +20,7 @@ function FeatureCard({ icon, title, description }: FeatureCardProps) {
 
 export function HowItWorks() {
   return (
-    <section className="bg-gradient-to-b from-black to-purple-950/20 py-12 md:py-20">
+    <section className="bg-gradient-to-b from-black to-theme-primary-dark/40 py-12 md:py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-white mb-16">
           How It Works
@@ -29,12 +29,12 @@ export function HowItWorks() {
           <FeatureCard
             icon={<Database className="h-6 w-6" />}
             title="Contribute Data"
-            description="Create and submit high-quality data for AI training across various domains."
+            description="Jump into our Training Gym and complete AI-generated computer tasks. From games to apps, every click and action contributes to something bigger."
           />
           <FeatureCard
             icon={<Trophy className="h-6 w-6" />}
             title="Earn Rewards"
-            description="Get compensated for your valuable contributions to AI advancement."
+            description="Get compensated for your valuable contributions to AI advancement. Participate in challenges and earn points that can be redeemed for exciting rewards."
           />
           <FeatureCard
             icon={<Globe className="h-6 w-6" />}

@@ -19,7 +19,7 @@ function Stat({ value, label }: StatProps) {
 export function StatsSection() {
   return (
     <div className="container mx-auto px-2 sm:px-4">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12 py-8 md:py-16 lg:py-24">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12 py-8 md:pt-16">
         <Stat value="320+" label="Completed Challenges" />
         <Stat value="237K+" label="Community Members" />
         <Stat value="$1.1M+" label="Awarded in Prizes" />
