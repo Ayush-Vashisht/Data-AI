@@ -2,12 +2,14 @@ import { Footer } from "@/components/footer";
 import HeroSection from "@/components/landing-page/HeroSection";
 import { HowItWorks } from "@/components/landing-page/HowItWorks";
 import { Community } from "@/components/landing-page/Community";
+import { TasksSection } from "@/components/landing-page/TasksSection";
 
 export default function LandingPage() {
   return (
     <>
       <main className="min-h-screen w-full">
         <HeroSection />
+        <TasksSection />
         <HowItWorks />
         <Community />
       </main>
