@@ -17,9 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  expertiseOptions,
   fetchLeaderboardData,
-  filterLeaderboardByExpertise,
   User,
 } from "./data/leaderboarddata";
 import { LeaderboardItem } from "./Leaderboarditem";
