@@ -1,18 +1,26 @@
-import Image from "next/image"
-import { User } from "./data/leaderboarddata"
+import Image from "next/image";
+import { User } from "./data/leaderboarddata";
 
 interface LeaderboardItemProps {
-  user: User
-  rank: number
-  isCurrentUser: boolean
+  user: User;
+  rank: number;
+  isCurrentUser: boolean;
 }
 
-export function LeaderboardItem({ user, rank, isCurrentUser }: LeaderboardItemProps) {
+export function LeaderboardItem({
+  user,
+  rank,
+  isCurrentUser,
+}: LeaderboardItemProps) {
   return (
     <div
-      className={`flex items-center p-4 ${isCurrentUser ? "bg-purple-700/30" : "hover:bg-white/5"} rounded-lg transition-colors border border-purple-500/20 shadow-md`}
+      className={`flex items-center p-4 ${
+        isCurrentUser ? "bg-purple-700/30" : "hover:bg-white/5"
+      } rounded-lg transition-colors border border-purple-400/30 shadow-md`}
     >
-      <div className="flex-shrink-0 w-8 text-center font-bold text-purple-300">{rank}</div>
+      <div className="flex-shrink-0 w-8 text-center font-bold text-purple-300">
+        {rank}
+      </div>
       <div className="flex-shrink-0 ml-4">
         <Image
           src={user.avatar || "/placeholder.svg"}
@@ -36,6 +44,5 @@ export function LeaderboardItem({ user, rank, isCurrentUser }: LeaderboardItemPr
       </div>
       {rank <= 3 && <div className="flex-shrink-0 text-2xl">{user.badge}</div>}
     </div>
-  )
+  );
 }
-

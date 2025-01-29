@@ -16,10 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  fetchLeaderboardData,
-  User,
-} from "./data/leaderboarddata";
+import { fetchLeaderboardData, User } from "./data/leaderboarddata";
 import { LeaderboardItem } from "./Leaderboarditem";
 
 const ITEMS_PER_PAGE = 10;
@@ -95,16 +92,16 @@ export function Leaderboard() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border border-purple-500/20">
-      <h1 className="text-3xl font-bold text-center mb-8 text-purple-800">
+    <div className="max-w-2xl mx-auto p-6 bg-black backdrop-blur-sm rounded-xl shadow-2xl border border-purple-500/20">
+      <h1 className="text-3xl font-bold text-center mb-8 text-purple-500">
         Leaderboard
       </h1>
       <div className="mb-6 ">
         <Select onValueChange={handleExpertiseChange}>
-          <SelectTrigger className="w-full bg-gradient-to-b from-purple-900/40 to-black">
+          <SelectTrigger className="w-full bg-purple-900/40">
             <SelectValue placeholder="Filter by expertise" />
           </SelectTrigger>
-          <SelectContent className="bg-gradient-to-b from-purple-900/40 to-black">
+          <SelectContent className="bg-purple-900 text-white">
             {expertiseOptions.map((option) => (
               <SelectItem key={option} value={option}>
                 {option}
