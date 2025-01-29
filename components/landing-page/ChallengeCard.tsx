@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface ChallengeCardProps {
   title: string;
@@ -8,6 +9,7 @@ interface ChallengeCardProps {
   image: string;
   organizer: string;
   organizerImage: string;
+  slug: string;
 }
 
 export function ChallengeCard({
@@ -16,9 +18,15 @@ export function ChallengeCard({
   image,
   organizer,
   organizerImage,
+  slug,
 }: ChallengeCardProps) {
+  const router = useRouter();
+
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-purple-500/30 hover:border-purple-500/50 bg-gradient-to-br from-theme-primary to-theme-primary p-6 transition-all hover:scale-105 w-64 h-80">
+    <div
+      onClick={() => router.push(`/task/${slug}`)}
+      className="group relative cursor-pointer overflow-hidden rounded-xl border border-purple-500/30 hover:border-purple-500/50 bg-gradient-to-br from-theme-primary to-theme-primary p-6 transition-all hover:scale-105 w-64 h-80"
+    >
       <div className="relative h-full flex flex-col items-center justify-between">
         <div className="relative w-32 h-32 mb-4">
           <Image

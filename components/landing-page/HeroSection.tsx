@@ -61,6 +61,7 @@ export default function Home() {
                     image={featuredChallenges[0].image}
                     organizer={featuredChallenges[0].organizer}
                     organizerImage={featuredChallenges[0].organizerImage}
+                    slug={featuredChallenges[0].slug}
                   />
                 </div>
                 <div className="absolute top-[45%] left-[40%] z-[2] hover:z-[10] transition-[z-index]">
@@ -70,6 +71,7 @@ export default function Home() {
                     image={featuredChallenges[1].image}
                     organizer={featuredChallenges[1].organizer}
                     organizerImage={featuredChallenges[1].organizerImage}
+                    slug={featuredChallenges[1].slug}
                   />
                 </div>
                 <div className="absolute top-[17%] left-[12%] z-[1] hover:z-[10] transition-[z-index]">
@@ -79,6 +81,7 @@ export default function Home() {
                     image={featuredChallenges[2].image}
                     organizer={featuredChallenges[2].organizer}
                     organizerImage={featuredChallenges[2].organizerImage}
+                    slug={featuredChallenges[2].slug}
                   />
                 </div>
               </div>
