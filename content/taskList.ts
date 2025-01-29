@@ -1,0 +1,133 @@
+// Featured challenges for hero section
+export const featuredChallenges = [
+  {
+    title: "AI Model Optimization Challenge",
+    prize: "$5,000 Prize Pool",
+    image: "/challenges/ai-optimization.jpg",
+    organizer: "TechCorp AI",
+    organizerImage: "/organizers/techcorp.png",
+  },
+  {
+    title: "Sustainable Code Architecture",
+    prize: "$3,000 Prize Pool",
+    image: "/challenges/sustainable-arch.jpg",
+    organizer: "GreenTech Solutions",
+    organizerImage: "/organizers/greentech.png",
+  },
+  {
+    title: "Quantum Computing Algorithm",
+    prize: "$10,000 Prize Pool",
+    image: "/challenges/quantum-comp.jpg",
+    organizer: "QuantumLabs",
+    organizerImage: "/organizers/quantumlabs.png",
+  },
+];
+
+// Extended list of engineering tasks and challenges
+export const engineeringChallenges = [
+  {
+    title: "ML Pipeline Optimization",
+    prize: "$2,500 Prize Pool",
+    image: "/challenges/ai-optimization.jpg",
+    organizer: "DataFlow Inc",
+    organizerImage: "/organizers/dataflow.png",
+  },
+  {
+    title: "Cloud Infrastructure Security",
+    prize: "$4,000 Prize Pool",
+    image: "/challenges/sustainable-arch.jpg",
+    organizer: "TechCorp AI",
+    organizerImage: "/organizers/techcorp.png",
+  },
+  {
+    title: "Real-time Analytics Dashboard",
+    prize: "$3,500 Prize Pool",
+    image: "/challenges/quantum-comp.jpg",
+    organizer: "GreenTech Solutions",
+    organizerImage: "/organizers/greentech.png",
+  },
+  {
+    title: "Mobile App Performance",
+    prize: "$2,000 Prize Pool",
+    image: "/challenges/ai-optimization.jpg",
+    organizer: "QuantumLabs",
+    organizerImage: "/organizers/quantumlabs.png",
+  },
+  {
+    title: "Blockchain Smart Contracts",
+    prize: "$6,000 Prize Pool",
+    image: "/challenges/blockchain.png",
+    organizer: "VirtualTech",
+    organizerImage: "/organizers/virtualtech.png",
+  },
+  {
+    title: "DevOps Automation Challenge",
+    prize: "$3,000 Prize Pool",
+    image: "/challenges/devops.jpeg",
+    organizer: "DataFlow Inc",
+    organizerImage: "/organizers/dataflow.png",
+  },
+  {
+    title: "Edge Computing Solutions",
+    prize: "$4,500 Prize Pool",
+    image: "/challenges/edge-computing.jpg",
+    organizer: "TechCorp AI",
+    organizerImage: "/organizers/techcorp.png",
+  },
+  {
+    title: "Natural Language Processing",
+    prize: "$5,500 Prize Pool",
+    image: "/challenges/nlp.jpg",
+    organizer: "QuantumLabs",
+    organizerImage: "/organizers/quantumlabs.png",
+  },
+  {
+    title: "Microservices Architecture",
+    prize: "$3,800 Prize Pool",
+    image: "/challenges/microservices.jpg",
+    organizer: "GreenTech Solutions",
+    organizerImage: "/organizers/greentech.png",
+  },
+  {
+    title: "IoT Data Processing",
+    prize: "$4,200 Prize Pool",
+    image: "/challenges/iot.jpg",
+    organizer: "DataFlow Inc",
+    organizerImage: "/organizers/dataflow.png",
+  },
+  {
+    title: "API Security Challenge",
+    prize: "$3,200 Prize Pool",
+    image: "/challenges/api-security.jpg",
+    organizer: "TechCorp AI",
+    organizerImage: "/organizers/techcorp.png",
+  },
+  {
+    title: "Database Optimization",
+    prize: "$2,800 Prize Pool",
+    image: "/challenges/database.jpg",
+    organizer: "QuantumLabs",
+    organizerImage: "/organizers/quantumlabs.png",
+  },
+  {
+    title: "UI/UX Innovation",
+    prize: "$2,500 Prize Pool",
+    image: "/challenges/ui-ux.jpg",
+    organizer: "GreenTech Solutions",
+    organizerImage: "/organizers/greentech.png",
+  },
+  {
+    title: "5G Network Solutions",
+    prize: "$5,000 Prize Pool",
+    image: "/challenges/5g-network.jpg",
+    organizer: "DataFlow Inc",
+    organizerImage: "/organizers/dataflow.png",
+  },
+  {
+    title: "AR/VR Development",
+    prize: "$4,800 Prize Pool",
+    image: "/challenges/quantum-comp.jpg",
+    organizer: "VirtualTech",
+    organizerImage: "/organizers/virtualtech.jpg",
+  },
+];
