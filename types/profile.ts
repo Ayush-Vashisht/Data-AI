@@ -26,4 +26,21 @@ export interface ProfileData {
     description: string[];
     tags?: string[];
   }[];
+  tasksCompleted: {
+    title: string;
+    description: string;
+    skillsUsed: string[];
+  }[];
+  ongoingTasks: {
+    title: string;
+    description: string;
+    skillsUsed: string[];
+  }[];
+  availableTasks: {
+    title: string;
+    description: string;
+    requiredSkills: string[];
+    difficulty: "Easy" | "Medium" | "Hard";
+    estimatedTime: string;
+  }[];
 }
