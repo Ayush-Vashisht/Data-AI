@@ -12,28 +12,28 @@ interface ProfileTabsProps {
 export function ProfileTabs({ data }: ProfileTabsProps) {
   return (
     <Tabs defaultValue="experience" className="w-full">
-      <TabsList className="grid w-full grid-cols-4 border-b rounded-none text-purple-500">
+      <TabsList className="grid w-full grid-cols-4 border-x border-purple-500 rounded-none text-purple-700">
         <TabsTrigger
           value="experience"
-          className="- data-[state=active]:bg-purple-600 data-[state=active]:text-white"
+          className=" data-[state=active]:bg-purple-600 data-[state=active]:text-white data-[state=active]:rounded-md"
         >
           Experience
         </TabsTrigger>
         <TabsTrigger
           value="tasksCompleted"
-          className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
+          className="data-[state=active]:bg-purple-600 data-[state=active]:text-white data-[state=active]:rounded-md"
         >
           Tasks Completed
         </TabsTrigger>
         <TabsTrigger
           value="ongoingTasks"
-          className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
+          className="data-[state=active]:bg-purple-600 data-[state=active]:text-white data-[state=active]:rounded-md"
         >
           Ongoing Tasks
         </TabsTrigger>
         <TabsTrigger
           value="availableTasks"
-          className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
+          className="data-[state=active]:bg-purple-600 data-[state=active]:text-white data-[state=active]:rounded-md"
         >
           Available Tasks
         </TabsTrigger>
@@ -41,7 +41,7 @@ export function ProfileTabs({ data }: ProfileTabsProps) {
 
       <TabsContent value="experience">
         <div className="p-6">
-          <h2 className="text-md font-bold mb-6">Work Experience</h2>
+          {/* <h2 className="text-md font-bold mb-6">Work Experience</h2> */}
           <div className="relative space-y-0 ">
             {data.experience.map((exp, index) => (
               <div key={index} className="flex gap-4 pb-2 relative">
@@ -56,14 +56,10 @@ export function ProfileTabs({ data }: ProfileTabsProps) {
                 <div className="flex-1 pb-4">
                   <div className="flex items-center justify-between mb-1">
                     <h3 className="font-semibold text-sm">{exp.title}</h3>
-                    <span className="text-xs text-muted-foreground">
-                      {exp.period}
-                    </span>
+                    <span className="text-xs text-gray-300">{exp.period}</span>
                   </div>
-                  <p className="text-xs text-muted-foreground mb-2">
-                    {exp.company}
-                  </p>
-                  <div className="space-y-2 text-xs text-muted-foreground">
+                  <p className="text-xs text-white mb-2">{exp.company}</p>
+                  <div className="space-y-2 text-xs text-gray-400">
                     {exp.description.map((desc, i) => (
                       <p key={i}>{desc}</p>
                     ))}
@@ -76,7 +72,7 @@ export function ProfileTabs({ data }: ProfileTabsProps) {
       </TabsContent>
       <TabsContent value="tasksCompleted">
         <div className="p-6">
-          <h2 className="text-md font-bold mb-6">Tasks Completed</h2>
+          {/* <h2 className="text-md font-bold mb-6">Tasks Completed</h2> */}
           <div className="space-y-6">
             {data.tasksCompleted.map((task, index) => (
               <div
@@ -84,12 +80,16 @@ export function ProfileTabs({ data }: ProfileTabsProps) {
                 className="border-b pb-6 last:border-b-0 last:pb-0"
               >
                 <h3 className="font-semibold text-sm mb-2">{task.title}</h3>
-                <p className="text-xs text-muted-foreground mb-4">
+                <p className="text-xs text-muted-foreground mb-4 text-gray-400">
                   {task.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {task.skillsUsed.map((skill) => (
-                    <Badge key={skill} variant="secondary">
+                    <Badge
+                      key={skill}
+                      variant="secondary"
+                      className="text-purple-500"
+                    >
                       {skill}
                     </Badge>
                   ))}
@@ -101,7 +101,7 @@ export function ProfileTabs({ data }: ProfileTabsProps) {
       </TabsContent>
       <TabsContent value="ongoingTasks">
         <div className="p-6">
-          <h2 className="text-md font-bold mb-6">Ongoing Tasks</h2>
+          {/* <h2 className="text-md font-bold mb-6">Ongoing Tasks</h2> */}
           <div className="space-y-6">
             {data.ongoingTasks.map((task, index) => (
               <div
@@ -109,12 +109,14 @@ export function ProfileTabs({ data }: ProfileTabsProps) {
                 className="border-b pb-6 last:border-b-0 last:pb-0"
               >
                 <h3 className="font-semibold text-sm mb-2">{task.title}</h3>
-                <p className="text-xs text-muted-foreground mb-4">
-                  {task.description}
-                </p>
+                <p className="text-xs text-gray-400 mb-4">{task.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {task.skillsUsed.map((skill) => (
-                    <Badge key={skill} variant="secondary">
+                    <Badge
+                      key={skill}
+                      variant="secondary"
+                      className="text-purple-500"
+                    >
                       {skill}
                     </Badge>
                   ))}
@@ -126,30 +128,43 @@ export function ProfileTabs({ data }: ProfileTabsProps) {
       </TabsContent>
       <TabsContent value="availableTasks">
         <div className="p-6">
-          <h2 className="text-md font-bold mb-6">Available Tasks</h2>
+          {/* <h2 className="text-md font-bold mb-6">Available Tasks</h2> */}
           <div className="grid gap-4 md:grid-cols-2">
             {data.availableTasks.map((task, index) => (
-              <Card key={index}>
+              <Card
+                key={index}
+                className="!border-none bg-gradient-to-b from-purple-900/40 to-black shadow shadow-md flex flex-col justify-between"
+              >
                 <CardHeader>
-                  <CardTitle className="text-sm font-semibold">{task.title}</CardTitle>
+                  <CardTitle className="text-md font-bold text-purple-800">
+                    {task.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-xs text-muted-foreground mb-4">
-                    {task.description}
-                  </p>
+                  <p className="text-xs text-white mb-4">{task.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {task.requiredSkills.map((skill) => (
-                      <Badge key={skill} variant="secondary" className="text-xs">
+                      <Badge
+                        key={skill}
+                        variant="secondary"
+                        className="text-purple-500"
+                      >
                         {skill}
                       </Badge>
                     ))}
                   </div>
-                  <div className="flex justify-between text-xs">
+                  <div className="flex justify-between text-xs text-gray-400">
                     <span>
-                      Difficulty: <strong>{task.difficulty}</strong>
+                      Difficulty:{" "}
+                      <strong className="text-purple-500">
+                        {task.difficulty}
+                      </strong>
                     </span>
                     <span>
-                      Est. Time: <strong>{task.estimatedTime}</strong>
+                      Est. Time:{" "}
+                      <strong className="text-purple-500">
+                        {task.estimatedTime}
+                      </strong>
                     </span>
                   </div>
                 </CardContent>
